@@ -1,13 +1,10 @@
-import "./App.css";
-import { AlwaysSuspend } from "./AlwaysSuspend";
 import { Suspense } from "react";
 
 function App() {
   return (
     <div className="App">
-      <Suspense fallback={<p>Loading</p>}>
-        <AlwaysSuspend />
-      </Suspense>
+      <h1 className="text-5xl">React App!</h1>
+      <Suspense fallback={<p>Loading</p>}></Suspense>
     </div>
   );
 }
