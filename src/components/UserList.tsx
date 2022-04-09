@@ -1,11 +1,15 @@
-import { memo, VFC } from "react";
-import { useQueryUsers } from "../hooks/useUsers";
+import { memo, useEffect, VFC } from "react";
+import { useGetNextUsers, useQueryUsers } from "../hooks/useUsers";
 
 export const UserList: VFC = memo(() => {
-  const { status, data } = useQueryUsers();
+  // const {data,status} = useQueryUsers();
+  const { users, useNextUsers } = useGetNextUsers();
+  useEffect(() => {
+    useNextUsers();
+  }, []);
   return (
     <ul>
-      {data?.map((user, index) => (
+      {users?.map((user, index) => (
         <li key={index}>{user.name}</li>
       ))}
     </ul>
